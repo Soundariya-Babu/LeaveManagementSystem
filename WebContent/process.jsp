@@ -31,7 +31,7 @@ if(action.equals("submit"))
         String hashPass=BCrypt.hashpw(password, BCrypt.gensalt());
         Company com=new Company(id,name,role,hashPass,managerId);
         CompanyDao cd=new CompanyDao();
-        boolean flag=cd.saveEmployee(com);
+        boolean flag=cd.saveEmployee(com);  
           if(flag==true)
           {
 	     	response.sendRedirect("login.jsp");

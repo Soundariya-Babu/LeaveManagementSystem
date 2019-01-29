@@ -16,6 +16,10 @@ else if(action.equals("Leave Status"))
 {
 	response.sendRedirect("leaveStatus.jsp");
 }
+else
+{
+	response.sendRedirect("logout.jsp");
+}
 
 %>
 </body>

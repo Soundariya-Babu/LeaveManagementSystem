@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Pending</title>
+<title>Logout</title>
 </head>
 <body>
-<h1>Your request is pending</h1>
+<%
+session.invalidate();
+response.sendRedirect("index.jsp");
+%>
 </body>
 </html>

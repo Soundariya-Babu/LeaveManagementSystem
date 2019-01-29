@@ -8,13 +8,13 @@
 </head>
 <body>
 <%String action=request.getParameter("action");
-if(action.equals("Leave Approval"))
-{
-	response.sendRedirect("approvalLeave.jsp");
-}
-else if(action.equals("List Employee"))
+if(action.equals("List Employee"))
 {
 	response.sendRedirect("list.jsp");
+}
+else
+{
+	response.sendRedirect("logout.jsp");
 }
 
 %>

@@ -7,6 +7,8 @@
 <title>LeaveRequest</title>
 </head>
 <body>
+<%@ include file="AuthenticateEmployee.jsp" %>
+<h1>This is leave request page</h1>
 <form action="process5.jsp" method="post">
 
 <br>Id      : <input type="text" name="id"><br>

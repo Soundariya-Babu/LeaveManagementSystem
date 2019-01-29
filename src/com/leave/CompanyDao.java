@@ -126,5 +126,24 @@ public class CompanyDao {
 			}
 		return flag;
 	}
+	public String getRole(String id)
+	{
+		String Role=null;
+	try{
+	Connection con=DatabaseUtil.getConnection();
+	PreparedStatement ps=con.prepareStatement("select Role from company where id=?");
+	ps.setString(1, id);
+	ResultSet rs=ps.executeQuery();
+	while(rs.next())
+	{
+		Role=rs.getString(1);
+	}
+	}
+	catch(SQLException e) {
+		System.out.println(e.getMessage());
+	}
+	return Role;
+		
+	}
 	
 }

@@ -17,17 +17,23 @@ String action=request.getParameter("action");
  if(action.equals("check"))
 
 		{
+	 CompanyDao cd=new CompanyDao();
 	    String id=request.getParameter("userid");
 		String password=request.getParameter("password");
+		String role=cd.getRole(id);
 		if(id==null&&password==null)
 		{
 			response.sendRedirect("error.jsp");
 		}
-		CompanyDao cd=new CompanyDao();
+		
 		String hashPass=cd.checkPassword(id);
-		if(BCrypt.checkpw(password, hashPass))
+		HttpSession session1=request.getSession();
+        session1.setAttribute("id",id);
+        session1.setAttribute("role",role);
+       
+        if(BCrypt.checkpw(password, hashPass))
 		 {
-			if(id.equals("101"))
+			if(role.equals("Manager"))
 			response.sendRedirect("Manager.jsp");
 			else
      		response.sendRedirect("Employee.jsp");
